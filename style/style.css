@@ -1,2 +1,148 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap");
-/*# sourceMappingURL=style.css.map */
+body {
+  color: #5b5b5c;
+  font-size: 18px;
+  font-family: 'Montserrat', sans-serif;
+  letter-spacing: 0.14em;
+}
+
+.container {
+  max-width: 1700px;
+  padding: 0 15px;
+  margin: 0 auto;
+}
+
+.intro {
+  color: #000;
+  text-align: center;
+  font-size: 32px;
+  font-weight: bold;
+  margin-bottom: 37px;
+  max-width: 55%;
+  margin: 0 auto;
+}
+
+.intro__sub {
+  margin-top: 30px;
+  font-size: 28px;
+  font-weight: 500;
+  color: #5b5b5c;
+}
+
+.title {
+  text-align: start;
+  font-weight: 500;
+  color: #000;
+  font-size: 27px;
+  line-height: 1.2em;
+}
+
+.title p {
+  font-size: 17px;
+  color: #dddcdc;
+}
+
+.header {
+  text-align: center;
+  color: #fff;
+  height: 100%;
+  width: 100%;
+  background: url("../images/intro.jpg") center/cover fixed;
+}
+
+.header .nav {
+  padding-top: 33px;
+}
+
+.header .nav__link {
+  font-size: 18px;
+  margin: 0 3vw;
+}
+
+.header__intro {
+  margin: 38vh 0;
+}
+
+.header__intro h1 {
+  font-size: calc(53px + 30 * (100vw / 1370));
+  font-weight: bold;
+  letter-spacing: 0.01em;
+}
+
+.header__intro p {
+  font-size: 27px;
+  margin: 2px 0 20px 0;
+}
+
+.header__button {
+  background-color: transparent;
+  border: 2px solid #fff;
+  padding: 13px 78px;
+  font-size: 16px;
+}
+
+.about {
+  padding: 58px 0 40px 0;
+}
+
+.about .container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.about__content {
+  max-width: 50%;
+}
+
+.about__content p {
+  margin: 50px 0;
+  line-height: 1.2em;
+}
+
+.about__content p:first-child {
+  margin-bottom: 23px;
+}
+
+.about__button {
+  background-color: transparent;
+  color: #000;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  border: 2px solid #000;
+  padding: 13px 78px;
+  font-size: 16px;
+}
+
+.gallery .intro {
+  margin: 105px auto 92px;
+}
+
+.gallery .container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.gallery .container img {
+  margin-bottom: 35px;
+}
