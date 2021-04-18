@@ -1,4 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap')
+@import mixins.sass
+@import media.sass
 //Main colours
 $lightgray: #dddcdc
 $gray: #c4c4c4
@@ -15,17 +17,21 @@ body
     padding: 0 15px
     margin: 0 auto
 
+img
+    max-width: 100%
+    max-height: 100%
+    object-fit: cover
+    object-postioion: 0 0
+
 .intro
     color: #000
     text-align: center
-    font-size: 32px
+    font-size: calc(22px + 10 * (100vw / 1670))
     font-weight: bold
-    margin-bottom: 37px
     max-width: 55%
-    margin: 0 auto
     &__sub
         margin-top: 30px
-        font-size: 28px
+        font-size: calc(18px + 8 * (100vw / 1670))
         font-weight: 500
         color: $darkgray
 
@@ -35,9 +41,12 @@ body
     color: #000
     font-size: 27px
     line-height: 1.2em
-    p
+    &__sup
         font-size: 17px
         color: $lightgray
+        margin-bottom: 7px
+
+//HEADER>>>
 
 .header
     text-align: center
@@ -50,35 +59,54 @@ body
         &__link
             font-size: 18px
             margin: 0 3vw
+        &__menu
+            height: 30px
+            width: 30px
+            position: relative
+            display: none
+            cursor: pointer
+            span, &::before, &::after
+                height: 4px
+                width: 100%
+                position: absolute
+                left: 0
+                background-color: white
+            span
+                top: 50%
+                transform: translateY(-50%)
+            &::before
+                top: 0
+            &::after
+                bottom: 0
     &__intro
         margin: 38vh 0
         h1
-            font-size: calc(53px + 30 * (100vw / 1370))
+            font-size: calc(50px + 30 * (100vw / 1670))
             font-weight: bold
             letter-spacing: 0.01em
         p
             font-size: 27px
-            margin: 2px 0 20px 0
+            margin-bottom: 18px
     &__button
         background-color: transparent
         border: 2px solid #fff
         padding: 13px 78px
         font-size: 16px
 
+//ABOUT>>>
+
 .about
     padding: 58px 0 40px 0
-    .container
+    &__container
         display: flex
         flex-direction: row
         justify-content: space-between
         align-items: center
     &__content
-        max-width: 50%
+        flex: 1 1 50%
+        padding-right: 80px
         p
-            margin: 50px 0
-            line-height: 1.2em
-            &:first-child
-                margin-bottom: 23px
+            margin: 40px 0
     &__button
         background-color: transparent
         color: #000
@@ -88,13 +116,73 @@ body
         padding: 13px 78px
         font-size: 16px
 
+//GALLERY>>>
+
 .gallery
-    .intro
+    &__intro
         margin: 105px auto 92px
-    .container
+    &__photos
+        display: flex
+        flex-direction: row
+        justify-content: space-evenly
+        flex-wrap: wrap
+    &__photo
+        overflow: hidden
+        img
+            margin-bottom: 35px
+            max-width: 100%
+            max-height: 100%
+            object-fit: cover
+            object-postioion: 0 0
+    &__nav
+        margin: 85px auto 150px
+        text-align: center
+
+//SERVICE>>>
+
+.service
+    &__intro
+        margin: 0 auto 60px
+    &__items
         display: flex
         flex-direction: row
         justify-content: space-between
+        align-items: center
         flex-wrap: wrap
-        img
-            margin-bottom: 35px
+    &__item
+        flex: 0 1 49%
+        @include laptop
+            flex: 0 0 100%
+            text-align: center
+        p
+            max-width: 85%
+            margin: 50px 0 78px 0
+            line-height: 34px
+            @include laptop
+                max-width: 100%
+        h3
+            font-size: 18px
+            font-weight: bold
+            color: black
+            margin-top: 60px
+        button
+            padding: 19px 30px
+            background-color: $lightgray
+            color: #000
+            font-size: 16px
+            margin-bottom: 150px
+
+//NEXTOUR>>>
+
+.nextour
+    &__container
+        display: flex
+        flex-direction: row
+        justify-content: space-between
+        align-items: center
+        flex-wrap: wrap
+    &__content
+        flex: 1 1 50%
+        padding: 0 22px
+        p
+            margin-top: 40px

@@ -1,0 +1,40 @@
+@import mixins.sass
+.header
+    @include tablets
+    height: 80%
+    .nav
+        &__list
+            @include xsphones
+                display: none
+        &__menu
+            @include xsphones
+                display: block
+                margin-left: auto
+            &::before
+                @include pseudo()
+            &::after
+                @include pseudo()
+    &__intro
+        @include tablets
+            margin: 29vh 0
+        @include phones
+            margin: 20vh 0
+    &__button
+        @include xsphones
+            padding: 13px 50px
+
+.service
+    &__item
+        flex: 0 1 49%
+        @include laptop
+            flex: 0 0 100%
+            p
+                text-align: center
+                max-width: 100%
+
+.about
+    &__container
+        @include laptop
+            flex-direction: column
+            flex-wrap: wrap
+            align-content: center
