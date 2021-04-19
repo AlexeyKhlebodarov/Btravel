@@ -1,6 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap')
 @import mixins.sass
-@import media.sass
 //Main colours
 $lightgray: #dddcdc
 $gray: #c4c4c4
@@ -13,7 +12,7 @@ body
     letter-spacing: 0.14em
 
 .container
-    max-width: 1700px
+    max-width: 90%
     padding: 0 15px
     margin: 0 auto
 
@@ -39,12 +38,14 @@ img
     text-align: start
     font-weight: 500
     color: #000
-    font-size: 27px
+    font-size: calc(17px + 10 * (100vw / 1670))
     line-height: 1.2em
     &__sup
-        font-size: 17px
+        font-size: calc(10px + 7 * (100vw / 1670))
         color: $lightgray
         margin-bottom: 7px
+    @include laptop
+        text-align: center
 
 //HEADER>>>
 
@@ -54,8 +55,13 @@ img
     height: 100%
     width: 100%
     background: url("../images/intro.jpg") center/cover fixed
+    @include tablets
+        height: 80%
     .nav
         padding-top: 33px
+        &__list
+            @include xsphones
+                display: none
         &__link
             font-size: 18px
             margin: 0 3vw
@@ -65,6 +71,13 @@ img
             position: relative
             display: none
             cursor: pointer
+            @include xsphones
+                display: block
+                margin-left: auto
+            &::before
+                @include pseudo()
+            &::after
+                @include pseudo()
             span, &::before, &::after
                 height: 4px
                 width: 100%
@@ -80,8 +93,12 @@ img
                 bottom: 0
     &__intro
         margin: 38vh 0
+        @include tablets
+            margin: 29vh 0
+        @include phones
+            margin: 20vh 0
         h1
-            font-size: calc(50px + 30 * (100vw / 1670))
+            font-size: calc(30px + 50 * (100vw / 1670))
             font-weight: bold
             letter-spacing: 0.01em
         p
@@ -92,6 +109,8 @@ img
         border: 2px solid #fff
         padding: 13px 78px
         font-size: 16px
+        @include xsphones
+            padding: 13px 50px
 
 //ABOUT>>>
 
@@ -102,11 +121,19 @@ img
         flex-direction: row
         justify-content: space-between
         align-items: center
+        @include laptop
+            text-align: center
+            flex-direction: column
+            flex-wrap: wrap
     &__content
-        flex: 1 1 50%
-        padding-right: 80px
+        flex: 0 1 50%
+        padding-right: 40px
+        @include laptop
+            padding-right: 0
         p
             margin: 40px 0
+    img
+        flex: 0 1 50%
     &__button
         background-color: transparent
         color: #000
@@ -115,6 +142,7 @@ img
         border: 2px solid #000
         padding: 13px 78px
         font-size: 16px
+        margin-bottom: 30px
 
 //GALLERY>>>
 
@@ -134,6 +162,7 @@ img
             max-height: 100%
             object-fit: cover
             object-postioion: 0 0
+            padding: 0 15px
     &__nav
         margin: 85px auto 150px
         text-align: center
@@ -180,9 +209,79 @@ img
         flex-direction: row
         justify-content: space-between
         align-items: center
-        flex-wrap: wrap
+        @include laptop
+            text-align: center
+            flex-direction: column
+            flex-wrap: wrap
     &__content
-        flex: 1 1 50%
-        padding: 0 22px
+        flex: 0 1 50%
+        padding: 50px 40px
+        @include laptop
+            padding: 50px 0
         p
             margin-top: 40px
+
+//FORM>>>
+
+.form
+    background-color: #f4f4f4
+    padding: 150px 0
+    &__container
+        display: flex
+        flex-direction: row
+        align-items: center
+        justify-content: space-between
+        @include tablets
+            flex-direction: column
+            align-items: center
+    &__content
+        margin: 0 15% 0 50px
+        @include tablets
+            text-align: center
+    form
+        flex: 0 1 65%
+        display: inherit
+        justify-content: space-evenly
+        flex-wrap: wrap
+        padding: 30px 0
+    h3
+        font-size: 27px
+        color: black
+        font-weight: 500
+        margin-bottom: 15px
+    input
+        height: 70px
+        padding: 16px
+        background-color: transparent
+        margin-bottom: 15px
+        border: 2px solid #7a7a7a
+        font-size: 20px
+        &::placeholder
+            color: #3a4047
+        @include desktop
+            width: 100%
+            margin-right: 0
+    button
+        padding: 0 70px
+        height: 70px
+        background-color: #3a4047
+        color: #fff
+        letter-spacing: 0.3rem
+        border: 2px solid #7a7a7a
+        @include desktop
+            flex: 0 0 100%
+
+//FOOTER>>>
+
+.footer
+    padding: 90px 0 110px 0
+    text-align: center
+    font-weight: 500
+    letter-spacing: 0.35rem
+    color: black
+    line-height: 2rem
+    &__nav
+        font-size: 22px
+        margin-bottom: 63px
+    &__link
+        margin: 25px
