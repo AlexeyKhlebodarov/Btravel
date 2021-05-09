@@ -7,7 +7,7 @@ body {
 }
 
 .container {
-  max-width: 90%;
+  max-width: 1710px;
   padding: 0 15px;
   margin: 0 auto;
 }
@@ -69,68 +69,126 @@ img {
   }
 }
 
-.header .nav {
+.header .navbar {
   padding-top: 33px;
 }
 
 @media screen and (max-width: 400px) {
-  .header .nav__list {
+  .header .navbar-list {
     display: none;
   }
 }
 
-.header .nav__link {
+.header .navbar-list__link {
   font-size: 18px;
   margin: 0 3vw;
 }
 
-.header .nav__menu {
-  height: 30px;
-  width: 30px;
-  position: relative;
+.header .burger-menu {
   display: none;
-  cursor: pointer;
 }
 
 @media screen and (max-width: 400px) {
-  .header .nav__menu {
+  .header .burger-menu {
     display: block;
-    margin-left: auto;
   }
 }
 
-.header .nav__menu::before {
-  content: "";
-  display: block;
-  position: absolute;
+.header .burger-menu__button {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  width: 30px;
+  height: 30px;
+  border-radius: 5px;
+  background-color: #000;
+  z-index: 10;
+  cursor: pointer;
 }
 
-.header .nav__menu::after {
-  content: "";
-  display: block;
+.header .burger-menu span, .header .burger-menu span::before, .header .burger-menu span::after {
   position: absolute;
-}
-
-.header .nav__menu span, .header .nav__menu::before, .header .nav__menu::after {
-  height: 4px;
-  width: 100%;
-  position: absolute;
+  height: 2px;
+  width: 20px;
+  background-color: #fff;
   left: 0;
-  background-color: white;
 }
 
-.header .nav__menu span {
+.header .burger-menu span {
   top: 50%;
-  -webkit-transform: translateY(-50%);
-          transform: translateY(-50%);
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
 }
 
-.header .nav__menu::before {
+.header .burger-menu span::before {
+  content: "";
+  top: -8px;
+  border-radius: 5px 5px 0 0;
+}
+
+.header .burger-menu span::after {
+  content: "";
+  top: 8px;
+  border-radius: 0 0 5px 5px;
+}
+
+.header .burger-menu__nav {
+  text-align: center;
+  position: fixed;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  height: 100%;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  -webkit-backdrop-filter: blur(5px);
+          backdrop-filter: blur(5px);
   top: 0;
+  right: -100%;
+  -webkit-transition: 1s ease-out;
+  transition: 1s ease-out;
+  color: #fff;
+  z-index: 5;
 }
 
-.header .nav__menu::after {
-  bottom: 0;
+.header .burger-menu__link {
+  padding: 30px;
+  font-size: 32px;
+  text-transform: uppercase;
+  letter-spacing: 5px;
+  font-weight: 700;
+}
+
+.header .burger-menu_active .burger-menu__nav {
+  left: 0;
+}
+
+.header .burger-menu_active .burger-menu__button span {
+  background-color: transparent;
+}
+
+.header .burger-menu_active .burger-menu__button span::before {
+  top: 0;
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+  -webkit-transition: 0.3s ease-out;
+  transition: 0.3s ease-out;
+}
+
+.header .burger-menu_active .burger-menu__button span::after {
+  top: 0;
+  -webkit-transform: rotate(-45deg);
+          transform: rotate(-45deg);
+  -webkit-transition: 0.3s ease-out;
+  transition: 0.3s ease-out;
 }
 
 .header__intro {
@@ -244,6 +302,7 @@ img {
 }
 
 .gallery__photos {
+  width: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -251,9 +310,9 @@ img {
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
-  -webkit-box-pack: space-evenly;
-      -ms-flex-pack: space-evenly;
-          justify-content: space-evenly;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
 }
@@ -263,13 +322,13 @@ img {
 }
 
 .gallery__photo img {
-  margin-bottom: 35px;
+  margin-bottom: 25px;
   max-width: 100%;
   max-height: 100%;
   -o-object-fit: cover;
      object-fit: cover;
   object-postioion: 0 0;
-  padding: 0 15px;
+  padding: 0 10px;
 }
 
 .gallery__nav {
